@@ -6,6 +6,8 @@ export class StoreService {
     this.actionMap = {
       addMarker: (payload) => this.store.getState().addMarker(payload),
       removeMarker: (payload) => this.store.getState().removeMarker(payload),
+      addMarkers: (payload) => this.store.getState().addMarkers(payload),
+      removeMarkers: (payload) => this.store.getState().removeMarkers(payload),
     };
   }
 
