@@ -15,27 +15,6 @@ export class ApiClient {
     const contentType = response.headers.get("Content-Type");
 
     let responseData;
-    // if (contentType.includes("application/json")) {
-    //   responseData = await response.json();
-    // } else if (
-    //   contentType.includes("text/plain") ||
-    //   contentType.includes("text/html")
-    // ) {
-    //   responseData = await response.text();
-    // } else if (
-    //   contentType.includes("application/xml") ||
-    //   contentType.includes("text/xml")
-    // ) {
-    //   responseData = await response.text(); // Можно использовать XMLParser для парсинга
-    // } else if (
-    //   contentType.includes("image/") ||
-    //   contentType.includes("application/octet-stream")
-    // ) {
-    //   responseData = await response.blob(); // Для изображений или бинарных данных
-    // } else {
-    //   responseData = await response.text();
-    // }
-
     switch (true) {
       case contentType.includes("application/json"):
         responseData = await response.json();

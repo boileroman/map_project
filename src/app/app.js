@@ -5,6 +5,7 @@ import { MapApp } from "../widgets/MapApp/model/index.js";
 import { API_URL, API_ENDPOINTS } from "#shared/config/constants";
 
 import "choices.js/public/assets/styles/choices.css";
+import { StoreService } from "#shared/lib/services/StoreService.js";
 
 async function initMSW() {
   if (process.env.NODE_ENV === "development") {
@@ -31,6 +32,6 @@ Promise.all([initMSW(), domReady()]).then(() => {
   const apiClient = new ApiClient(API_URL);
   new ChoiceSelectModel();
   window.App.ChoiceSelectModel = ChoiceSelectModel;
-  new MapApp("store-map-markers");
+  new MapApp(new StoreService("mapAppStore"), new ApiClient(API_URL));
   apiClient.get(API_ENDPOINTS.marks.list).then((res) => console.debug(res));
 });

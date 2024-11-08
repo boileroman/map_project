@@ -11,7 +11,6 @@ import { fileURLToPath } from "url";
 const { IgnorePlugin } = webpack;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const baseDir = path.resolve(__dirname, "./src");
 const buildDir = path.resolve(__dirname, "./build");
 const pagesDir = path.resolve(__dirname, "./src/pages");
 const publicDir = path.resolve(__dirname, "./public");
@@ -44,6 +43,13 @@ export default async (env, { mode }) => {
     },
     module: {
       rules: [
+        {
+          test: /\.js$/, // Для всех .js файлов
+          exclude: /node_modules/, // Игнорируем node_modules
+          use: {
+            loader: "babel-loader", // Используем babel-loader
+          },
+        },
         {
           test: /\.(css|pcss)$/,
           use: [

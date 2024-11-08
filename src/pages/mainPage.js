@@ -142,6 +142,7 @@ const indexPage = () => `
           },
         })}
         </div>
+        <div id="map1" style="width: 800px; aspect-ratio: 1 / 1"></div>
         ${GeoIcon()}
     </main>
 </body>
