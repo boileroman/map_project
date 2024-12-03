@@ -1,3 +1,8 @@
+//загрузка внешних стилей различных библиотек, используемых в проекте
+import "choices.js/public/assets/styles/choices.css";
+import "swiper/css/bundle";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 const files = await import.meta.webpackContext("../", {
   regExp: /\.pcss$/,
   mode: "eager",

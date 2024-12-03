@@ -29,22 +29,25 @@ export const createStore = (storageName) => {
           },
           addMarkers: (newMarkers) => {
             set((state) => {
-              const uniqueMarkers = newMarkers.filter((newMarker) => {
-                const exists = state.markers.some(
-                  (m) => m?.id === newMarker.id
+              // Для каждого маркера в списке проверяем, существует ли уже маркер с таким id
+              const updatedMarkers = [...state.markers];
+              newMarkers.forEach((marker) => {
+                // Если маркер с таким id уже существует, обновляем его
+                const markerIndex = updatedMarkers.findIndex(
+                  (m) => m.id === marker.id
                 );
-                if (exists) {
-                  console.warn(
-                    `Marker with ID ${newMarker.id} already exists.`
-                  );
+                if (markerIndex !== -1) {
+                  updatedMarkers[markerIndex] = {
+                    ...updatedMarkers[markerIndex],
+                    ...marker,
+                  };
+                } else {
+                  // Если маркера нет, добавляем новый
+                  updatedMarkers.push(marker);
                 }
-                return !exists;
               });
 
-              if (uniqueMarkers.length > 0) {
-                return { markers: [...state.markers, ...uniqueMarkers] };
-              }
-              return state;
+              return { markers: updatedMarkers };
             });
           },
           removeMarker: (markerId) =>

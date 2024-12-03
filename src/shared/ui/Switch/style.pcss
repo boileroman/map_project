@@ -1,6 +1,6 @@
 .switch {
   --switchBgColor: var(--colorGray);
-  --switchBgColorActive: var(--colorPrimary);
+  --switchBhColorActive: var(--colorPrimary);
   --switchWidth: 5.75rem;
   --switchHeight: 3rem;
   --switchBorderRadius: 7rem;
@@ -8,12 +8,15 @@
   --switchCircleHeight: 2.5rem;
   --switckCircleColor: var(--colorWhite);
   --switchTransition: all 0.4s;
-  --switchTypeDisplay: inline-flex;
+  --swithTypeDisplay: inline-flex;
+  --switchFlexDirection: row;
   --switchGap: 1rem;
   position: relative;
-  display: var(--switchTypeDisplay);
+  display: var(--swithTypeDisplay);
   align-items: center;
+  flex-direction: var(--switchFlexDirection);
   gap: var(--switchGap);
+  cursor: pointer;
 
   &:has(&__label:empty) {
     --switchGap: 0;
@@ -44,13 +47,17 @@
   &__input {
     /* stylelint-disable-next-line selector-class-pattern */
     &:checked + .switch__slider {
-      background-color: var(--switchBgColorActive);
+      background-color: var(--switchBhColorActive);
 
       &::before {
         transform: translateX(
-          calc(var(--switchWidth) - var(--switchCircleWidth) - 6px)
+          calc(var(--switchWidth) - var(--switchCircleWidth) - 4px)
         );
       }
     }
+  }
+
+  &--isRightLabel {
+    --switchFlexDirection: row-reverse;
   }
 }

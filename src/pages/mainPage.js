@@ -1,3 +1,4 @@
+import { PlaceSwitchGroup } from "#features/PlaceSwitchGroup";
 import { Button } from "#shared/ui/Button/index";
 import {
   GeoIcon,
@@ -142,9 +143,17 @@ const indexPage = () => `
           },
         })}
         </div>
-        <div id="map1" style="width: 800px; aspect-ratio: 1 / 1"></div>
-        ${GeoIcon()}
+        ${PlaceSwitchGroup()}
+        <div id="map1" class="yandexMap" style="width: 800px; aspect-ratio: 1 / 1"></div>
     </main>
+    <div style="display: none">
+      <div id="modalSuccess">
+          <p>Успешно!</p>
+      </div>
+      <div id="modalError">
+        <p>Не успешно!</p>
+      </div>
+    </div>
 </body>
 </html>
 `;

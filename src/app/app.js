@@ -2,9 +2,11 @@ import "./styles.js";
 import { ApiClient } from "../shared/lib/services/ApiClient.js";
 import { ChoiceSelectModel } from "../shared/ui/Select/model/index.js";
 import { MapApp } from "../widgets/MapApp/model/index.js";
-import { API_URL, API_ENDPOINTS } from "#shared/config/constants";
+import { DeleteMarkModel } from "#features/Marks/DeleteMark/model/index.js";
+import { API_URL } from "#shared/config/constants";
 
 import "choices.js/public/assets/styles/choices.css";
+import { ModalManager } from "#shared/lib/plugins/modalManager.js";
 import { StoreService } from "#shared/lib/services/StoreService.js";
 
 async function initMSW() {
@@ -29,9 +31,9 @@ function domReady() {
 
 Promise.all([initMSW(), domReady()]).then(() => {
   window.App = {};
-  const apiClient = new ApiClient(API_URL);
   new ChoiceSelectModel();
   window.App.ChoiceSelectModel = ChoiceSelectModel;
-  new MapApp(new StoreService("mapAppStore"), new ApiClient(API_URL));
-  apiClient.get(API_ENDPOINTS.marks.list).then((res) => console.debug(res));
+  window.App.StoreServiceForMap = new StoreService("mapAppStore");
+  new MapApp(window.App.StoreServiceForMap, new ApiClient(API_URL));
+  new DeleteMarkModel(window.App.StoreServiceForMap);
 });
