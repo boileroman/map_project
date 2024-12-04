@@ -7,7 +7,7 @@ import { UpdateMarkModel } from "#features/Marks/UpdateMark/model/index.js";
 import { API_URL } from "#shared/config/constants";
 
 import "choices.js/public/assets/styles/choices.css";
-import { ModalManager } from "#shared/lib/plugins/modalManager.js";
+//import { ModalManager } from "#shared/lib/plugins/modalManager.js";
 import { StoreService } from "#shared/lib/services/StoreService.js";
 
 async function initMSW() {

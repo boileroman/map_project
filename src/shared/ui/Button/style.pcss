@@ -14,7 +14,6 @@
   --btnColor: var(--colorBlack);
   --btnIconColor: var(--colorBlack);
   display: inline-flex;
-  gap: var(--btnGapIcon);
   justify-content: center;
   align-items: center;
   width: var(--btnWidth);
@@ -26,9 +25,14 @@
   font-size: var(--btnFontSize);
   color: var(--btnColor);
   cursor: var(--btnCursor);
+  gap: var(--btnGapIcon);
 
   &:hover {
     background-color: var(--btnBgHoverColor);
+  }
+
+  &--no-icon {
+    gap: 0;
   }
 
   &__icon {
@@ -37,6 +41,10 @@
     display: flex;
     align-items: center;
     color: var(--btnIconColor);
+  }
+
+  &--no-icon &__icon {
+    display: none;
   }
 
   &--isRedIcon {
