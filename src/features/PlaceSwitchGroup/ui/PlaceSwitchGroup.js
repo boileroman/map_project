@@ -37,9 +37,11 @@ export const PlaceSwitchGroup = ({
 
   return `
     <div class="placeSwitchGroup ${extraClasses.join(" ")}" ${getGeneratedAttrs(extraAttrs)}>
-      <div data-js-filter="marks">
-        <input type="text" name="search" data-js-filter-item="search" data-js-filter-parent-name="marks"/>
-        ${switchElements}
+      <div class="placeSwitchGroup__controls" data-js-filter="marks">
+        <input class="placeSwitchGroup__input" placeholder="Введите адрес" type="text" name="search" data-js-filter-item="search" data-js-filter-parent-name="marks"/>
+        <div class="placeSwitchGroup__switches">
+          ${switchElements}
+        </div>
       </div>
     </div>
   `;

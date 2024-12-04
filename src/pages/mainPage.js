@@ -1,17 +1,4 @@
 import { PlaceSwitchGroup } from "#features/PlaceSwitchGroup";
-import { Button } from "#shared/ui/Button/index";
-import {
-  GeoIcon,
-  YesIcon,
-  NoIcon,
-  RestaurantIcon,
-  BarIcon,
-  MovieIcon,
-  TheaterIcon,
-  MusicIcon,
-} from "#shared/ui/Icons/index";
-import { Select } from "#shared/ui/Select/ui/Select";
-import { Switch } from "#shared/ui/Switch/index";
 
 /**
  * Страница
@@ -26,125 +13,9 @@ const indexPage = () => `
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Home Page</h1>
-    </header>
-    <main>
-        <p>Hello world!</p>
-        <div class="isFlex mb16 gap8">
-          ${Button({ text: "Да", iconSlot: YesIcon(), extraClasses: ["btn--isGreenLightIcon"] })}
-          ${Button({ text: "Нет", iconSlot: NoIcon(), extraClasses: ["btn--isRedIcon"] })}
-        </div>
-        ${Switch({
-          label: "hello",
-          extraInputAttrs: [
-            { name: "name", value: "formAuth" },
-            { name: "form", value: "rememberMe" },
-          ],
-        })}
-        <div style="max-width: 279px">${Select({
-          extraAttrs: [{ name: "id", value: "select-type-mark" }],
-          cfg: {
-            preset: "default",
-            itemSelectText: "",
-            searchEnabled: false,
-            choices: [
-              {
-                value: "Ресторан",
-                label: "Ресторан",
-                selected: true,
-                customProperties: {
-                  icon: RestaurantIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-              {
-                value: "Ночной клуб",
-                label: "Ночной клуб",
-                selected: false,
-                customProperties: {
-                  icon: MusicIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-              {
-                value: "Театр",
-                label: "Театр",
-                selected: false,
-                customProperties: {
-                  icon: TheaterIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-              {
-                value: "Кино",
-                label: "Кино",
-                selected: false,
-                customProperties: {
-                  icon: MovieIcon({ iconColor: "var(--colorPrimary)" }),
-                },
-              },
-              {
-                value: "Бар",
-                label: "Бар",
-                selected: false,
-                customProperties: {
-                  icon: BarIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-            ],
-          },
-        })}
-        ${Select({
-          extraAttrs: [{ name: "id", value: "select-type-mark" }],
-          cfg: {
-            preset: "fancy",
-            itemSelectText: "",
-            searchEnabled: false,
-            choices: [
-              {
-                value: "Ресторан",
-                label: "Ресторан",
-                selected: true,
-                customProperties: {
-                  icon: RestaurantIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-              {
-                value: "Ночной клуб",
-                label: "Ночной клуб",
-                selected: false,
-                customProperties: {
-                  icon: MusicIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-              {
-                value: "Театр",
-                label: "Театр",
-                selected: false,
-                customProperties: {
-                  icon: TheaterIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-              {
-                value: "Кино",
-                label: "Кино",
-                selected: false,
-                customProperties: {
-                  icon: MovieIcon({ iconColor: "var(--colorPrimary)" }),
-                },
-              },
-              {
-                value: "Бар",
-                label: "Бар",
-                selected: false,
-                customProperties: {
-                  icon: BarIcon({ iconColor: "var(--colorRed)" }),
-                },
-              },
-            ],
-          },
-        })}
-        </div>
+    <main class="ml17 mt152">
         ${PlaceSwitchGroup()}
-        <div id="map1" class="yandexMap" style="width: 800px; aspect-ratio: 1 / 1"></div>
+        <div id="map1" class="yandexMap mt24" style="width: 1407px; aspect-ratio: 2 / 1; display: flex; justify-content: center; align-items: center"></div>
     </main>
     <div style="display: none">
       <div id="modalSuccess">

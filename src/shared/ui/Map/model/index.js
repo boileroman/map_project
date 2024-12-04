@@ -8,7 +8,7 @@ import {
 } from "../config/constants.js";
 import { checkMapInstance } from "../config/lib/checkMapInstance.js";
 import { DeleteMarkBtn } from "#features/Marks/DeleteMark/index.js";
-import { UpdateMarkBtn } from "#features/Marks/UpdateMark/ui/Updatemark.js";
+import { UpdateMarkBtn } from "#features/Marks/UpdateMark/ui/UpdateMark";
 import { getExternalScript } from "#shared/lib/utils/getExternalScript";
 
 /**
@@ -18,7 +18,7 @@ export class YandexMap {
   constructor({
     containerSelector,
     apiKey,
-    center = [45.751574, 37.573856],
+    center = [52.5, 57.9],
     zoom = 10,
     lang = "ru_RU",
     apiUrl = "https://api-maps.yandex.ru/2.1/?apikey",

@@ -1,6 +1,53 @@
 .placeSwitchGroup {
+  --inputMaxWidth: 51rem;
+  --inputHeigth: 6rem;
+  --inputBgColor: var(--colorGrayLighter);
+  --inputBgHoverColor: var(--colorGrayLight);
+  --inputFontSize: 2rem;
+  --inputFontSizePlaceholder: 1.75rem;
+  --inputFontColor: var(--colorBlack);
+  --inputBorder: none;
+  --inputPdBlock: 1.5rem;
+  --inputPdInline: 2rem;
+  --inputBorderRadius: 1rem;
+  --inputColor: var(--colorBlack);
+  --inputIconColor: var(--colorBlack);
+  --inputPlaceholderColor: var(--colorBattleshipGray);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 2rem;
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__switches {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: var(--inputMaxWidth);
+    height: var(--inputHeight);
+    padding: 10px 40px 10px 15px;
+    border: var(--inputBorder);
+    border-radius: var(--inputBorderRadius);
+    background-color: var(--inputBgColor);
+    font-size: var(--inputFontSize);
+    color: var(--inputFontColor);
+  }
+
+  &__input:focus {
+    outline: none;
+  }
+
+  &__input::placeholder {
+    color: var(--inputPlaceholderColor);
+    font-size: var(--inputFontSizePlaceholder);
+  }
 }
