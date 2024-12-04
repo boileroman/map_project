@@ -8,6 +8,7 @@ import {
 } from "../config/constants.js";
 import { checkMapInstance } from "../config/lib/checkMapInstance.js";
 import { DeleteMarkBtn } from "#features/Marks/DeleteMark/index.js";
+import { UpdateMarkBtn } from "#features/Marks/UpdateMark/ui/Updatemark.js";
 import { getExternalScript } from "#shared/lib/utils/getExternalScript";
 
 /**
@@ -260,6 +261,7 @@ export class YandexMap {
             <div>${this.iconsPresets[type]}</div>
             <p>${city},${street}, ${house}</p>
             ${DeleteMarkBtn({ markId: id })}
+            ${UpdateMarkBtn({ markInfo: info })}
             `;
   }
 

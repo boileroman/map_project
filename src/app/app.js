@@ -3,6 +3,7 @@ import { ApiClient } from "../shared/lib/services/ApiClient.js";
 import { ChoiceSelectModel } from "../shared/ui/Select/model/index.js";
 import { MapApp } from "../widgets/MapApp/model/index.js";
 import { DeleteMarkModel } from "#features/Marks/DeleteMark/model/index.js";
+import { UpdateMarkModel } from "#features/Marks/UpdateMark/model/index.js";
 import { API_URL } from "#shared/config/constants";
 
 import "choices.js/public/assets/styles/choices.css";
@@ -36,4 +37,5 @@ Promise.all([initMSW(), domReady()]).then(() => {
   window.App.StoreServiceForMap = new StoreService("mapAppStore");
   new MapApp(window.App.StoreServiceForMap, new ApiClient(API_URL));
   new DeleteMarkModel(window.App.StoreServiceForMap);
+  new UpdateMarkModel(window.App.StoreServiceForMap);
 });
