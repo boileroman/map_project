@@ -5,6 +5,7 @@ import {
   classNames as defaultClassNames,
   yandexMapCustomEventNames,
   iconShapeCfg as defaultIconShapeCfg,
+  yandexMapConfig,
 } from "../config/constants.js";
 import { checkMapInstance } from "../config/lib/checkMapInstance.js";
 import { DeleteMarkBtn } from "#features/Marks/DeleteMark/index.js";
@@ -18,10 +19,10 @@ export class YandexMap {
   constructor({
     containerSelector,
     apiKey,
-    center = [52.5, 57.9],
-    zoom = 10,
-    lang = "ru_RU",
-    apiUrl = "https://api-maps.yandex.ru/2.1/?apikey",
+    center = yandexMapConfig.defaultCenter,
+    zoom = yandexMapConfig.defaultZoom,
+    lang = yandexMapConfig.lang,
+    apiUrl = yandexMapConfig.apiUrl,
     classNames,
     iconShapeCfg,
   }) {
@@ -260,8 +261,8 @@ export class YandexMap {
             <h3>${title}</h3>
             <div>${this.iconsPresets[type]}</div>
             <p>${city},${street}, ${house}</p>
+            ${UpdateMarkBtn({ markInfo: info })}            
             ${DeleteMarkBtn({ markId: id })}
-            ${UpdateMarkBtn({ markInfo: info })}
             `;
   }
 

@@ -1,10 +1,17 @@
 .yandexMap {
+  --yandexMapWidth: 176rem;
+  --yandexMapAspectRatio: 2 / 1;
+  --yandexMapBorderRadius: 5rem;
   --yandexMapWidthPlacemark: 4.625rem;
   --yandexMapBallonLayoutWidth: 37.5rem;
   --yandexMapBallonLayoutMinHeight: 10rem;
   --yandexMapBallonContentBgColor: var(--colorWhite);
   --yandexMapBallonLayoutPd: 2px;
   position: relative;
+  width: var(--yandexMapWidth);
+  aspect-ratio: var(--yandexMapAspectRatio);
+  border-radius: var(--yandexMapBorderRadius);
+  overflow: hidden;
 
   &__mark {
     display: flex;

@@ -1,4 +1,5 @@
 import { PlaceSwitchGroup } from "#features/PlaceSwitchGroup";
+import { Map } from "#shared/ui/Map/index";
 
 /**
  * Страница
@@ -15,16 +16,8 @@ const indexPage = () => `
 <body>
     <main class="ml17 mt152">
         ${PlaceSwitchGroup()}
-        <div id="map1" class="yandexMap mt24" style="width: 1407px; aspect-ratio: 2 / 1; display: flex; justify-content: center; align-items: center"></div>
+        ${Map()}
     </main>
-    <div style="display: none">
-      <div id="modalSuccess">
-          <p>Успешно!</p>
-      </div>
-      <div id="modalError">
-        <p>Не успешно!</p>
-      </div>
-    </div>
 </body>
 </html>
 `;

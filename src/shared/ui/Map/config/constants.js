@@ -22,11 +22,18 @@ export const iconShapeCfg = {
 
 export const iconsPresets = {
   bars: BarIcon({ iconColor: "var(--colorRed)" }),
-  cinema: MovieIcon({ iconColor: "var(--colorRed)" }),
-  theatre: TheaterIcon({ iconColor: "var(--colorRed)" }),
-  restaurant: RestaurantIcon({ iconColor: "var(--colorRed)" }),
-  trk: MusicIcon({ iconColor: "var(--colorRed)" }),
+  cinema: MovieIcon({ iconColor: "var(--colorGreenLight)" }),
+  theatre: TheaterIcon({ iconColor: "var(--colorPurple)" }),
+  restaurant: RestaurantIcon({ iconColor: "var(--colorOrange)" }),
+  trk: MusicIcon({ iconColor: "var(--colorBlue)" }),
   centerMarker: GeoIcon({ iconColor: "var(--colorGray)" }),
+};
+
+export const yandexMapConfig = {
+  apiUrl: "https://api-maps.yandex.ru/2.1/?apikey",
+  defaultCenter: [52.5, 57.9],
+  defaultZoom: 10,
+  lang: "ru_RU",
 };
 
 export const yandexMapCustomEventNames = {

@@ -6,13 +6,14 @@
   --inputFontSize: 2rem;
   --inputFontSizePlaceholder: 1.75rem;
   --inputFontColor: var(--colorBlack);
-  --inputBorder: none;
+  --inputBorder: 1px solid var(--colorTransparent);
   --inputPdBlock: 1.5rem;
   --inputPdInline: 2rem;
   --inputBorderRadius: 1rem;
   --inputColor: var(--colorBlack);
   --inputIconColor: var(--colorBlack);
   --inputPlaceholderColor: var(--colorBattleshipGray);
+  --inputBorderFocus: 1px solid var(--colorPrimary);
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
@@ -44,6 +45,7 @@
 
   &__input:focus {
     outline: none;
+    border: var(--inputBorderFocus);
   }
 
   &__input::placeholder {
