@@ -37,11 +37,12 @@ Promise.all([initMSW(), domReady()]).then(() => {
   });
   window.App = {};
   new ChoiceSelectModel();
+  const apiClient = new ApiClient(API_URL);
   window.App.ChoiceSelectModel = ChoiceSelectModel;
   window.App.StoreServiceForMap = new StoreService("mapAppStore");
-  new MapApp(window.App.StoreServiceForMap, new ApiClient(API_URL));
+  new MapApp(window.App.StoreServiceForMap, apiClient);
   new DeleteMarkModel(window.App.StoreServiceForMap);
   new UpdateMarkModel(window.App.StoreServiceForMap);
 
-  new FormHandler();
+  new FormHandler(apiClient);
 });

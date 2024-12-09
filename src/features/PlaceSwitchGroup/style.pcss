@@ -4,7 +4,6 @@
   --inputBgColor: var(--colorGrayLighter);
   --inputBgHoverColor: var(--colorGrayLight);
   --inputFontSize: 2rem;
-  --inputFontSizePlaceholder: 1.75rem;
   --inputFontColor: var(--colorBlack);
   --inputBorder: 1px solid var(--colorTransparent);
   --inputPdBlock: 1.5rem;
@@ -23,11 +22,12 @@
     display: flex;
     align-items: center;
     gap: 4rem;
+    font-size: var(--inputFontSize);
   }
 
   &__switches {
     display: flex;
-    gap: 1rem;
+    gap: 2.5rem;
   }
 
   &__input {
@@ -40,7 +40,6 @@
     border: var(--inputBorder);
     border-radius: var(--inputBorderRadius);
     background-color: var(--inputBgColor);
-    font-size: var(--inputFontSize);
     color: var(--inputFontColor);
 
     &__icon {
@@ -56,6 +55,5 @@
 
   &__input::placeholder {
     color: var(--inputPlaceholderColor);
-    font-size: var(--inputFontSizePlaceholder);
   }
 }

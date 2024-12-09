@@ -64,12 +64,14 @@ export class ApiClient {
     };
 
     if (body) {
-      switch (contentType) {
-        case "application/json":
-          options.body = JSON.stringify(body);
-          break;
-        default:
-          options.body = body;
+      if (body instanceof FormData) {
+        delete options.headers["Content-Type"];
+        options.body = body;
+      } else if (contentType === "application/json") {
+        options.body = JSON.stringify(body);
+        options.headers["Content-Type"] = "application/json";
+      } else {
+        options.body = body;
       }
     }
 
@@ -100,7 +102,14 @@ export class ApiClient {
     return this.request(endpoint, "PUT", body, headers, contentType);
   }
 
-  delete(endpoint, headers = {}, contentType = "application/json") {
-    return this.request(endpoint, "DELETE", null, headers, contentType);
+  delete(
+    endpoint,
+    params = {},
+    headers = {},
+    contentType = "application/json"
+  ) {
+    const queryString = this.serializeParams(params);
+    const urlWithParams = queryString ? `${endpoint}?${queryString}` : endpoint;
+    return this.request(urlWithParams, "DELETE", null, headers, contentType);
   }
 }

@@ -1,5 +1,3 @@
-// import { ApiClient } from "../services/ApiClient.js";
-
 import { ModalManager } from "./modalManager.js";
 
 /**
@@ -12,20 +10,21 @@ export class FormHandler {
     form: "data-js-form",
   };
 
-  constructor() {
+  constructor(apiClient) {
     if (FormHandler.instance) return FormHandler.instance;
+    this.apiClient = apiClient;
     this.#bindEvents();
     FormHandler.instance = this;
   }
 
-  static getInstance() {
+  static getInstance(apiClient) {
     if (!FormHandler.instance) {
-      FormHandler.instance = new FormHandler();
+      FormHandler.instance = new FormHandler(apiClient);
     }
     return FormHandler.instance;
   }
 
-  #handleSubmit(e) {
+  async #handleSubmit(e) {
     const { target, submitter } = e;
     if (!target.hasAttribute(`${this.attrs.form}`)) return;
     if (!target.tagName.toLowerCase() === "form") return;
@@ -46,31 +45,36 @@ export class FormHandler {
     }
 
     submitter.disabled = true;
-    //TODO: а что делать с get запросами?) сериализация в url + лучше использовать APICLIENT
-    fetch(url, {
-      method,
-      body: data,
-    })
-      .then((res) => {
-        if (showModalAfterSuccess) {
-          ModalManager.getInstance().closeAll();
-          ModalManager.getInstance().open(showModalAfterSuccess, {
-            type: "inline",
-          });
-        }
-        if (redirectUrlAfterSuccess) {
-          if (delayBeforeRedirect) {
-            setTimeout(() => {
-              location.href = redirectUrlAfterSuccess;
-            }, delayBeforeRedirect);
-          } else {
+
+    try {
+      if (method.toUpperCase() === "GET") {
+        const params = Object.fromEntries(data.entries());
+        await this.apiClient.get(url, params);
+      } else {
+        await this.apiClient.post(url, data);
+      }
+
+      if (showModalAfterSuccess) {
+        ModalManager.getInstance().closeAll();
+        ModalManager.getInstance().open(showModalAfterSuccess, {
+          type: "inline",
+        });
+      }
+
+      if (redirectUrlAfterSuccess) {
+        if (delayBeforeRedirect) {
+          setTimeout(() => {
             location.href = redirectUrlAfterSuccess;
-          }
+          }, delayBeforeRedirect);
+        } else {
+          location.href = redirectUrlAfterSuccess;
         }
-      })
-      .finally(() => {
-        submitter.disabled = false;
-      });
+      }
+    } catch (error) {
+      console.error("Ошибка при отправке формы:", error);
+    } finally {
+      submitter.disabled = false;
+    }
   }
 
   #bindEvents() {
