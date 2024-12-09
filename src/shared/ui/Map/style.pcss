@@ -4,7 +4,7 @@
   --yandexMapBorderRadius: 5rem;
   --yandexMapWidthPlacemark: 4.625rem;
   --yandexMapBallonLayoutWidth: 37.5rem;
-  --yandexMapBallonLayoutMinHeight: 10rem;
+  --yandexMapBallonLayoutMinHeight: 48.25rem;
   --yandexMapBallonContentBgColor: var(--colorWhite);
   --yandexMapBallonLayoutPd: 2px;
   position: relative;
@@ -39,6 +39,26 @@
 
   &__ballonContent {
     max-width: 37.5rem;
+    font-size: 1.75rem;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2.5rem;
+      max-width: 31.5rem;
+
+      &-type {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      gap: 10rem;
+      margin-bottom: 1rem;
+    }
   }
 
   &__centerMarker {

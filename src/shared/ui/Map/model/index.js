@@ -240,6 +240,7 @@ export class YandexMap {
 
   getLayoutContentForBallon(id, info) {
     const {
+      value,
       type,
       title,
       address: { city, house, street },
@@ -259,12 +260,16 @@ export class YandexMap {
               </div>
               <div class="swiper-pagination"></div>
             </div>
-            <h3>${title}</h3>
-            <div>${this.iconsPresets[type]}, ${type}</div>
-            <p>${city},${street}, ${house}</p>
-            <p>${comment}</p>
-            ${UpdateMarkBtn({ markInfo: info })}            
-            ${DeleteMarkBtn({ markId: id })}
+            <div class="yandexMap__ballonContent-info">
+              <h3>${title}</h3>
+              <div class="yandexMap__ballonContent-info-type">${this.iconsPresets[type]} ${value}</div>
+              <p>${city},${street}, ${house}</p>
+              <p>${comment}</p>            
+            </div>
+            <div class="yandexMap__ballonContent-buttons">
+              ${UpdateMarkBtn({ markInfo: info })}            
+              ${DeleteMarkBtn({ markId: id })}
+            </div>
             `;
   }
 

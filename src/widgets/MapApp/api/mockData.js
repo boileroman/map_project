@@ -48,6 +48,7 @@ export const marksDetailMockResponse = [
     id: "1",
     title: "Al Capone",
     type: "bars",
+    value: "Бар",
     address: {
       city: "Челябинск",
       house: "12a",
