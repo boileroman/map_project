@@ -1,5 +1,6 @@
 import { switchConfigDefault } from "../config/index.js";
 import { getGeneratedAttrs } from "#shared/lib/utils";
+import { SearchIcon } from "#shared/ui/Icons/index.js";
 import { Switch } from "#shared/ui/Switch";
 
 /**
@@ -39,6 +40,7 @@ export const PlaceSwitchGroup = ({
     <div class="placeSwitchGroup ${extraClasses.join(" ")}" ${getGeneratedAttrs(extraAttrs)}>
       <div class="placeSwitchGroup__controls" data-js-filter="marks">
         <input class="placeSwitchGroup__input" placeholder="Введите адрес" type="text" name="search" data-js-filter-item="search" data-js-filter-parent-name="marks"/>
+        <span class="placeSwitchGroup__input__icon">${SearchIcon()}</span>
         <div class="placeSwitchGroup__switches">
           ${switchElements}
         </div>

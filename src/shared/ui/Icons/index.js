@@ -10,5 +10,6 @@ export { NoIcon } from "./ui/NoIcon.js";
 export { RestaurantIcon } from "./ui/RestaurantIcon.js";
 export { RouteIcon } from "./ui/RouteIcon.js";
 export { SaveIcon } from "./ui/SaveIcon.js";
+export { SearchIcon } from "./ui/SearchIcon.js";
 export { TheaterIcon } from "./ui/TheaterIcon.js";
 export { YesIcon } from "./ui/YesIcon.js";

@@ -243,6 +243,7 @@ export class YandexMap {
       type,
       title,
       address: { city, house, street },
+      comment,
     } = info;
     const slides = info.images
       .map(
@@ -259,8 +260,9 @@ export class YandexMap {
               <div class="swiper-pagination"></div>
             </div>
             <h3>${title}</h3>
-            <div>${this.iconsPresets[type]}</div>
+            <div>${this.iconsPresets[type]}, ${type}</div>
             <p>${city},${street}, ${house}</p>
+            <p>${comment}</p>
             ${UpdateMarkBtn({ markInfo: info })}            
             ${DeleteMarkBtn({ markId: id })}
             `;

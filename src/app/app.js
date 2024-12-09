@@ -8,6 +8,7 @@ import { API_URL } from "#shared/config/constants";
 
 import "choices.js/public/assets/styles/choices.css";
 //import { ModalManager } from "#shared/lib/plugins/modalManager.js";
+import { FormHandler } from "#shared/lib/plugins/formHandler.js";
 import { StoreService } from "#shared/lib/services/StoreService.js";
 
 async function initMSW() {
@@ -31,6 +32,9 @@ function domReady() {
 }
 
 Promise.all([initMSW(), domReady()]).then(() => {
+  document.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
   window.App = {};
   new ChoiceSelectModel();
   window.App.ChoiceSelectModel = ChoiceSelectModel;
@@ -38,4 +42,6 @@ Promise.all([initMSW(), domReady()]).then(() => {
   new MapApp(window.App.StoreServiceForMap, new ApiClient(API_URL));
   new DeleteMarkModel(window.App.StoreServiceForMap);
   new UpdateMarkModel(window.App.StoreServiceForMap);
+
+  new FormHandler();
 });
