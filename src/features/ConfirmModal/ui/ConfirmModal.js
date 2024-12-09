@@ -13,7 +13,7 @@ export const ConfirmModal = ({
 } = {}) => {
   return `
       <div class="confirmModal" ${extraClasses.join(" ")}" ${getGeneratedAttrs(extraAttrs)}>
-        <p class="confirmModal__title">${message}</p>
+        <h2 class="confirmModal__title">${message}</h2>
         <div class="confirmModal__buttons">
            ${Button({ text: "Да", iconSlot: YesIcon(), extraClasses: ["btn--isGreenLightIcon"], extraAttrs: [{ name: "data-js-confirm-btn", value: "" }] })}, 
           ${Button({ text: "Нет", iconSlot: NoIcon(), extraClasses: ["btn--isRedIcon"], extraAttrs: [{ name: "data-js-cancel-btn", value: "" }] })}

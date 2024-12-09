@@ -1,3 +1,18 @@
 .confirmModal {
+  --confirmModalWidth: 57rem;
+  --confirmModalHeight: 22.5rem;
+  --confirmModalBorderRadius: 2rem;
+  --confirmModalGap: 7rem;
+  display: flex;
+  gap: var(--confirmModalGap);
+  position: relative;
   color: var(--colorBlack);
+  width: var(--confirmModalWidth);
+  height: var(--confirmModalHeight);
+  border-radius: var(--confirmModalBorderRadius);
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
 }

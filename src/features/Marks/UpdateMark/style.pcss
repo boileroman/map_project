@@ -1,4 +1,73 @@
 .updateModalContent {
-  --updateModalContentMinWidth: 100rem;
+  --updateModalContentMinWidth: 52rem;
+  --updateModalContentMinHeight: 75.5rem;
+  --updateModalContentInfoMinHeight: 62.5rem;
+  --updateModalContentBorderRadius: 2rem;
+  --updatemodalcontentinfoselectgap: 5.25rem;
+  --updateModalContentFontSize: 1.75rem;
+  --updateModalContentInputMaxWidth: 35rem;
+  --updateModalContentInputMinHeight: 5.5rem;
+  --updateModalContentInputBorder: 1px solid var(--colorTransparent);
+  --updateModalContentInputBorderRadius: 1rem;
+  --updateModalContentInputBgColor: var(--colorGrayLight);
+  min-height: var(--updateModalContentMinHeight);
   min-width: var(--updateModalContentMinWidth);
+  border-radius: var(--updateModalContentBorderRadius);
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: var(--updateModalContentFontSize);
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--updateModalContentInfoMinHeight);
+
+    &-block {
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 100%;
+        max-width: var(--updateModalContentInputMaxWidth);
+        min-height: var(--updateModalContentInputMinHeight);
+        padding: 10px 40px 10px 15px;
+        border: var(--updateModalContentInputBorder);
+        border-radius: var(--updateModalContentInputBorderRadius);
+        background-color: var(--updateModalContentInputBgColor);
+        font-size: var(--updateModalContentFontSize);
+      }
+
+      input:focus {
+        outline: none;
+        border: var(--updateModalContentInputBorder);
+      }
+    }
+
+    &-image {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1rem;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    &-text {
+      width: 12rem;
+    }
+  }
+}
+
+.customSelect {
+  --customSelectMaxWidth: 9rem;
+  max-width: 35rem;
 }
