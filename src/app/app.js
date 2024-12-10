@@ -9,6 +9,7 @@ import { API_URL } from "#shared/config/constants";
 import "choices.js/public/assets/styles/choices.css";
 //import { ModalManager } from "#shared/lib/plugins/modalManager.js";
 import { FormHandler } from "#shared/lib/plugins/formHandler.js";
+import { MapHintManager } from "#shared/lib/plugins/mapHintManager.js";
 import { StoreService } from "#shared/lib/services/StoreService.js";
 
 async function initMSW() {
@@ -35,6 +36,7 @@ Promise.all([initMSW(), domReady()]).then(() => {
   document.addEventListener("submit", (e) => {
     e.preventDefault();
   });
+  new MapHintManager("mapHint", "yandexMap");
   window.App = {};
   new ChoiceSelectModel();
   const apiClient = new ApiClient(API_URL);

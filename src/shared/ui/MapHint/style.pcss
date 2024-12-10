@@ -1,0 +1,38 @@
+.mapHint {
+  --mapHintWidth: 54rem;
+  --mapHintHeight: 25.25rem;
+  --mapHintBorderRadius: 2rem;
+  --mapHintBgColor: var(--colorBlack);
+  --mapHintFontSize: 2.5rem;
+  position: absolute;
+  width: var(--mapHintWidth);
+  height: var(--mapHintHeight);
+  border-radius: var(--mapHintBorderRadius);
+  background-color: var(--mapHintBgColor);
+  opacity: 0.4;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 2px;
+
+  &-text {
+    font-size: var(--mapHintFontSize);
+    color: var(--colorWhite);
+    margin: 0;
+  }
+
+  h3 {
+    margin-top: 12rem;
+  }
+
+  p {
+    width: 37.5rem;
+    text-align: center;
+  }
+}
